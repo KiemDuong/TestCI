@@ -1,0 +1,79 @@
+{"frames": {
+	"Elastic_0000_Layer-3-copy-2.png":{
+		"rotated": false,"trimmed": true,
+		"frame": {"x":128,"y":617,"w":41,"h":41},
+		"spriteSourceSize": {"x":0,"y":0,"w":41,"h":41},
+		"sourceSize": {"w":41,"h":41}
+	},
+	"Elastic_0001_Layer-1.png":{
+		"rotated": false,"trimmed": true,
+		"frame": {"x":0,"y":986,"w":2,"h":27},
+		"spriteSourceSize": {"x":0,"y":0,"w":2,"h":27},
+		"sourceSize": {"w":2,"h":27}
+	},
+	"Gold_coin.png":{
+		"rotated": false,"trimmed": true,
+		"frame": {"x":0,"y":887,"w":97,"h":97},
+		"spriteSourceSize": {"x":0,"y":0,"w":97,"h":97},
+		"sourceSize": {"w":97,"h":97}
+	},
+	"Gold_coin_off.png":{
+		"rotated": false,"trimmed": true,
+		"frame": {"x":148,"y":306,"w":35,"h":97},
+		"spriteSourceSize": {"x":31,"y":0,"w":97,"h":97},
+		"sourceSize": {"w":97,"h":97}
+	},
+	"Met_completed.png":{
+		"rotated": false,"trimmed": true,
+		"frame": {"x":0,"y":306,"w":146,"h":161},
+		"spriteSourceSize": {"x":0,"y":0,"w":146,"h":161},
+		"sourceSize": {"w":146,"h":161}
+	},
+	"Ninja_0000_Layer-10.png":{
+		"rotated": false,"trimmed": true,
+		"frame": {"x":117,"y":725,"w":102,"h":260},
+		"spriteSourceSize": {"x":0,"y":0,"w":102,"h":260},
+		"sourceSize": {"w":102,"h":260}
+	},
+	"Ninja_0001_Layer-9.png":{
+		"rotated": false,"trimmed": true,
+		"frame": {"x":0,"y":469,"w":126,"h":254},
+		"spriteSourceSize": {"x":0,"y":0,"w":126,"h":254},
+		"sourceSize": {"w":126,"h":254}
+	},
+	"Ninja_0002_Layer-8.png":{
+		"rotated": false,"trimmed": true,
+		"frame": {"x":0,"y":725,"w":115,"h":160},
+		"spriteSourceSize": {"x":0,"y":0,"w":115,"h":160},
+		"sourceSize": {"w":115,"h":160}
+	},
+	"Star_off.png":{
+		"rotated": false,"trimmed": true,
+		"frame": {"x":128,"y":469,"w":70,"h":72},
+		"spriteSourceSize": {"x":0,"y":0,"w":70,"h":72},
+		"sourceSize": {"w":70,"h":72}
+	},
+	"Star_on.png":{
+		"rotated": false,"trimmed": true,
+		"frame": {"x":128,"y":543,"w":70,"h":72},
+		"spriteSourceSize": {"x":0,"y":0,"w":70,"h":72},
+		"sourceSize": {"w":70,"h":72}
+	},
+	"sub_element_0001_branches-copy.png":{
+		"rotated": false,"trimmed": true,
+		"frame": {"x":0,"y":202,"w":192,"h":102},
+		"spriteSourceSize": {"x":0,"y":0,"w":192,"h":102},
+		"sourceSize": {"w":192,"h":102}
+	},
+	"sub_element_0002_branches.png":{
+		"rotated": false,"trimmed": true,
+		"frame": {"x":0,"y":0,"w":390,"h":200},
+		"spriteSourceSize": {"x":0,"y":0,"w":390,"h":200},
+		"sourceSize": {"w":390,"h":200}
+	},
+}
+"meta": {
+	"app": "ShoeBox",
+	"size": {"w":1024,"h":1024}
+}
+}
