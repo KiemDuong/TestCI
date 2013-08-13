@@ -9,7 +9,7 @@ public class EditorScript
 	 static void PerformBuild ()
      {
 		 string target_dir = APP_NAME + ".apk";
-         string[] scenes = { "Assets/JumpPlatform2.unity" };
+         string[] scenes = { "Assets/Scenes/TestCI.unity" };
 		
 		 // Test build on Android
          BuildPipeline.BuildPlayer(scenes, target_dir, BuildTarget.Android, BuildOptions.None);
