@@ -46,7 +46,7 @@ public class Dummy_Test : TestCase
     public void TestDummy_Fail()
     {
 		Assert.Null(m_dummy);
-		Assert
+
     }
 
     // @todo add more tests to test methods of the Dummy class...
