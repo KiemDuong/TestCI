@@ -21,11 +21,13 @@ public class Unity3D_TestReporter : TestReporter
         {
             // Log default summary
             Debug.LogWarning("No test results to report, did you add tests to the test suite?");
+			System.Console.WriteLine("No test results to report, did you add tests to the test suite?");
         }
         else
         {
             // Log summary to console
             Debug.Log(Result.GetSummary());
+			System.Console.WriteLine(Result.GetSummary());
         }
     }
 
@@ -50,6 +52,7 @@ public class Unity3D_TestReporter : TestReporter
 
             // Log as error to the console
             Debug.LogError(msg + "\n" + error);
+			System.Console.WriteLine(msg + "\n" + error);
         }
     }
 }
