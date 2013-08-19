@@ -1,8 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Editor/EditorScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Externals/SharpUnit/Dummy_Test.cs">
     <Files>
       <File FileName="Assets/Editor/EditorScript.cs" Line="5" Column="26" />
+      <File FileName="Assets/Externals/SharpUnit/Dummy_Test.cs" Line="48" Column="3" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -13,9 +14,11 @@
             </Node>
           </Node>
           <Node name="Assembly-CSharp-vs" expanded="True">
-            <Node name="Assets" expanded="True" selected="True">
+            <Node name="Assets" expanded="True">
               <Node name="Externals" expanded="True">
-                <Node name="SharpUnit" expanded="True" />
+                <Node name="SharpUnit" expanded="True">
+                  <Node name="Dummy_Test.cs" selected="True" />
+                </Node>
               </Node>
             </Node>
           </Node>
