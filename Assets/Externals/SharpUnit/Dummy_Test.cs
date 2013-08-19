@@ -36,6 +36,7 @@ public class Dummy_Test : TestCase
     public void TestDummy_Pass()
     {
         Assert.NotNull(m_dummy);
+
     }
 
     /**
@@ -45,6 +46,7 @@ public class Dummy_Test : TestCase
     public void TestDummy_Fail()
     {
 		Assert.Null(m_dummy);
+		Assert.Equal(5,6);
     }
 
     // @todo add more tests to test methods of the Dummy class...
