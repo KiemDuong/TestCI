@@ -8,10 +8,10 @@ public class EditorScript
 	 
 	 static void PerformBuild ()
      {
-		 string target_dir = APP_NAME + ".apk";
+		string target_dir = APP_NAME;
          string[] scenes = { "Assets/Scenes/TestCI.unity" };
 		
-		 // Test build on Android
-         BuildPipeline.BuildPlayer(scenes, target_dir, BuildTarget.Android, BuildOptions.None);
+		 // Test build 
+         BuildPipeline.BuildPlayer(scenes, target_dir, BuildTarget.StandaloneWindows, BuildOptions.None);
      }
 }
