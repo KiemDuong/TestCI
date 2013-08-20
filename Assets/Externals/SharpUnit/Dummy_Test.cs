@@ -41,12 +41,11 @@ public class Dummy_Test : TestCase
     /**
      * Sample test that fails.
      */
-    [UnitTest]
-    public void TestDummy_Fail()
-    {
-		Assert.Null(m_dummy);
-
-    }
+//    [UnitTest]
+//    public void TestDummy_Fail()
+//    {
+//		Assert.Null(m_dummy);
+//    }
 
     // @todo add more tests to test methods of the Dummy class...
         
