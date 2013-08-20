@@ -29,5 +29,9 @@ public class Unity3D_TestRunner : MonoBehaviour
         // Report results
         Unity3D_TestReporter reporter = new Unity3D_TestReporter();
         reporter.LogResults(res);
+
+		XML_TestReporter xmlReporter = new XML_TestReporter();
+		xmlReporter.Init("CI_test.xml");
+		xmlReporter.LogResults(res);
 	}
 }

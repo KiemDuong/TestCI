@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SharpUnit>
+	<summary><![CDATA[Ran 2 tests, 1 failed.]]></summary>
+	<fail>
+		<description><![CDATA[Failed: Dummy_Test.TestDummy_Fail() in File: Dummy_Test.cs on Line: 48]]></description>
+		<exception><![CDATA[SharpUnit.TestException: Expected Null object, got Dummy
+  at SharpUnit.Assert.Null (System.Object obj) [0x00000] in <filename unknown>:0 
+  at Dummy_Test.TestDummy_Fail () [0x00000] in /Users/kiemduong/Documents/Unity-Project/TestCI/Assets/Externals/SharpUnit/Dummy_Test.cs:48 
+  at (wrapper managed-to-native) System.Reflection.MonoMethod:InternalInvoke (object,object[],System.Exception&)
+  at System.Reflection.MonoMethod.Invoke (System.Object obj, BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x000d0] in /Applications/buildAgent/work/3df08680c6f85295/mcs/class/corlib/System.Reflection/MonoMethod.cs:222 ]]></exception>
+	</fail>
+</SharpUnit>
