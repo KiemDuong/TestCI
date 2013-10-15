@@ -20,7 +20,10 @@ public class EditorScript
 	[MenuItem("Window/PerformTest")]
 	static void PerformTest () {
 		
+		EditorApplication.playmodeStateChanged = Finished;
+		
 		EditorApplication.OpenScene("Assets/Scenes/TestCI.unity");	
+		
 		EditorApplication.isPlaying = true;
 		
 		GameObject testRunner = GameObject.Find ("TestRunner");
@@ -28,16 +31,16 @@ public class EditorScript
 		if (testRunner != null) {
 			comp = testRunner.AddComponent <OneFrameSignaller> ();
 		}
-		
-		EditorApplication.playmodeStateChanged = Finished;
 	}
 	
 	static void Finished () {
 		
-		if (comp != null) {
-			Object.Destroy (comp);	
+		if (!EditorApplication.isPlaying) {
+			if (comp != null) {
+				Object.Destroy (comp);	
+			}
+			
+			EditorApplication.Exit(0);
 		}
-		
-		EditorApplication.Exit(0);
 	}
 }
