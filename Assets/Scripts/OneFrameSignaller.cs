@@ -31,6 +31,7 @@ public class OneFrameSignaller : MonoBehaviour
     IEnumerator signalFrameEnd()
     {
         yield return new WaitForEndOfFrame();
-        EditorApplication.isPlaying = false;
+		
+        EditorApplication.Exit (0);
     }
 }

@@ -16,11 +16,8 @@ public class EditorScript
 		BuildPipeline.BuildPlayer(scenes, target_dir, BuildTarget.StandaloneWindows, BuildOptions.None);
      }
 	
-	static OneFrameSignaller comp = null;
 	[MenuItem("Window/PerformTest")]
 	static void PerformTest () {
-		
-		EditorApplication.playmodeStateChanged = Finished;
 		
 		EditorApplication.OpenScene("Assets/Scenes/TestCI.unity");	
 		
@@ -29,18 +26,7 @@ public class EditorScript
 		GameObject testRunner = GameObject.Find ("TestRunner");
 
 		if (testRunner != null) {
-			comp = testRunner.AddComponent <OneFrameSignaller> ();
-		}
-	}
-	
-	static void Finished () {
-		
-		if (!EditorApplication.isPlaying) {
-			if (comp != null) {
-				Object.Destroy (comp);	
-			}
-			
-			EditorApplication.Exit(0);
+			testRunner.AddComponent <OneFrameSignaller> ();
 		}
 	}
 }
