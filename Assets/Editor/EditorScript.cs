@@ -15,4 +15,29 @@ public class EditorScript
 		// Test build 
 		BuildPipeline.BuildPlayer(scenes, target_dir, BuildTarget.StandaloneWindows, BuildOptions.None);
      }
+	
+	static OneFrameSignaller comp = null;
+	[MenuItem("Window/PerformTest")]
+	static void PerformTest () {
+		
+		EditorApplication.OpenScene("Assets/Scenes/TestCI.unity");	
+		EditorApplication.isPlaying = true;
+		
+		GameObject testRunner = GameObject.Find ("TestRunner");
+
+		if (testRunner != null) {
+			comp = testRunner.AddComponent <OneFrameSignaller> ();
+		}
+		
+		EditorApplication.playmodeStateChanged = Finished;
+	}
+	
+	static void Finished () {
+		
+		if (comp != null) {
+			Object.Destroy (comp);	
+		}
+		
+		EditorApplication.Exit(0);
+	}
 }
