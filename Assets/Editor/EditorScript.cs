@@ -13,5 +13,7 @@ public class EditorScript
 		
 		 // Test build 
          BuildPipeline.BuildPlayer(scenes, target_dir, BuildTarget.StandaloneWindows, BuildOptions.None);
+		
+		
      }
 }
