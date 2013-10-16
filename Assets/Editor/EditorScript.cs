@@ -28,9 +28,13 @@ public class EditorScript
 		oneFrameObject.AddComponent <OneFrameSignaller> ();
 		
 		EditorApplication.isPlaying = true;
+		Debug.LogError ("EEEEE!");
 	}
 	
 	public static void Finished () {
+		
+		Debug.LogError ("WWWWW!");
+		
 		if (EditorApplication.isPlaying) {
 			EditorApplication.Exit (0);
 		}
