@@ -21,12 +21,18 @@ public class EditorScript
 		
 		EditorApplication.OpenScene("Assets/Scenes/TestCI.unity");	
 		
+		EditorApplication.playmodeStateChanged = EditorScript.Finished;
+		
 		EditorApplication.isPlaying = true;
 		
-		GameObject testRunner = GameObject.Find ("TestRunner");
+		GameObject oneFrameObject = new GameObject ("OneFrameObject");
 
-		if (testRunner != null) {
-			testRunner.AddComponent <OneFrameSignaller> ();
+		oneFrameObject.AddComponent <OneFrameSignaller> ();
+	}
+	
+	public static void Finished () {
+		if (EditorApplication.isPlaying) {
+			EditorApplication.Exit (0);
 		}
 	}
 }
