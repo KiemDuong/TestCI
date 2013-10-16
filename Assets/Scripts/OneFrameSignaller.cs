@@ -6,36 +6,24 @@ using System.Threading;
  
 public class OneFrameSignaller : MonoBehaviour
 {
-    public static bool atLeastOneFrameRan = false;
-    public static DateTime startTime;
-    public static TimeSpan testDuration; 
-	public static bool isFinished = false;
-    
-    void Update()
-    {
-        atLeastOneFrameRan = true;
-//        StartCoroutine(signalFrameEnd()); // use this to quit after this frame, you could use a counter instead
-        if (!isFinished && DateTime.Now - OneFrameSignaller.startTime > OneFrameSignaller.testDuration) // use this if you want a timed end of the test
-        {
-			isFinished = true;
-			
-			StartCoroutine(signalFrameEnd());
-        }
-		// Thread.Sleep(20); //this is somewhat evil, us this to extend the execution time 
-		// of the frames if you feel they run to fast for useful assertions
-    }
- 
     void Start() {
-        OneFrameSignaller.startTime = DateTime.Now;
-        OneFrameSignaller.testDuration = TimeSpan.FromSeconds(3);
+		
         Application.runInBackground = true;
+		
+		StartCoroutine (signalFrameEnd (3.0f));
     }
     
-    IEnumerator signalFrameEnd()
+    IEnumerator signalFrameEnd (float delay)
     {	
 		Debug.LogError ("AAAAA!");
-        yield return new WaitForEndOfFrame();
+		
+		yield return new WaitForSeconds (delay);
+		
 		Debug.LogError ("BBBBB!");
+		
+        yield return new WaitForEndOfFrame();
+		
+		Debug.LogError ("CCCC!");
 		
         EditorApplication.isPlaying = false;
     }
