@@ -15,15 +15,9 @@ public class OneFrameSignaller : MonoBehaviour
     
     IEnumerator signalFrameEnd (float delay)
     {	
-		Debug.LogError ("AAAAA!");
-		
 		yield return new WaitForSeconds (delay);
 		
-		Debug.LogError ("BBBBB!");
-		
-        yield return new WaitForEndOfFrame();
-		
-		Debug.LogError ("CCCC!");
+//        yield return new WaitForEndOfFrame();
 		
         EditorApplication.isPlaying = false;
     }
