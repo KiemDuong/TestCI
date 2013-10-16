@@ -30,7 +30,9 @@ public class OneFrameSignaller : MonoBehaviour
     
     IEnumerator signalFrameEnd()
     {
+		Debug.LogError ("AAAAA!");
         yield return new WaitForEndOfFrame();
+		Debug.LogError ("BBBBB!");
 		
         EditorApplication.isPlaying = false;
     }
