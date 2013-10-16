@@ -34,4 +34,10 @@ public class Unity3D_TestRunner : MonoBehaviour
 		xmlReporter.Init("CI_test.xml");
 		xmlReporter.LogResults(res);
 	}
+	
+	IEnumerator TestOneFrame () {
+		yield return new WaitForEndOfFrame ();
+		
+		Debug.Log ("DDDDDD!!!");
+	}
 }
