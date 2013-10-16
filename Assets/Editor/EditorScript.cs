@@ -23,11 +23,11 @@ public class EditorScript
 		
 		EditorApplication.playmodeStateChanged = EditorScript.Finished;
 		
-		EditorApplication.isPlaying = true;
-		
 		GameObject oneFrameObject = new GameObject ("OneFrameObject");
 
 		oneFrameObject.AddComponent <OneFrameSignaller> ();
+		
+		EditorApplication.isPlaying = true;
 	}
 	
 	public static void Finished () {
