@@ -6,8 +6,8 @@ using System.Threading;
  
 public class OneFrameSignaller : MonoBehaviour
 {
-    void Start() {
-		
+    void Start() 
+	{	
         Application.runInBackground = true;
 		
 		StartCoroutine (signalFrameEnd (3.0f));
@@ -17,8 +17,6 @@ public class OneFrameSignaller : MonoBehaviour
     {	
 		yield return new WaitForSeconds (delay);
 		
-//        yield return new WaitForEndOfFrame();
-		
-        EditorApplication.isPlaying = false;
+		EditorApplication.Exit (0);
     }
 }
