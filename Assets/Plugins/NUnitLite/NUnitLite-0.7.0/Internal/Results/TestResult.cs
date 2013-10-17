@@ -281,7 +281,7 @@ namespace NUnit.Framework.Internal
                     AddFailureElement(thisNode);
                     break;
                 case TestStatus.Skipped:
-                    AddReasonElement(thisNode);
+//                    AddReasonElement(thisNode);
                     break;
                 case TestStatus.Passed:
                     break;
