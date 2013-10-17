@@ -1,0 +1,27 @@
+﻿<test-suite type="Assembly" id="1007" name="Assembly-CSharp" fullname="Assembly-CSharp" testcasecount="6" result="Skipped" label="Ignored" time="0.064" total="6" passed="5" failed="0" inconclusive="0" skipped="1" asserts="9">
+  <properties>
+    <property name="_PID" value="6036" />
+    <property name="_APPDOMAIN" value="Unity Child Domain" />
+  </properties>
+  <reason>
+    <message><![CDATA[One or more child tests were ignored]]></message>
+  </reason>
+  <test-suite type="TestFixture" id="1000" name="TestPrimer" fullname="Test.TestPrimer" testcasecount="6" result="Skipped" label="Ignored" time="0.056" total="6" passed="5" failed="0" inconclusive="0" skipped="1" asserts="9">
+    <reason>
+      <message><![CDATA[One or more child tests were ignored]]></message>
+    </reason>
+    <test-case id="1001" name="Add" fullname="Test.TestPrimer.Add" result="Passed" time="0.012" asserts="1" />
+    <test-case id="1006" name="AllSource01MembersLessThen5" fullname="Test.TestPrimer.AllSource01MembersLessThen5" result="Passed" time="0.029" asserts="3" />
+    <test-case id="1002" name="ExpectAnException" fullname="Test.TestPrimer.ExpectAnException" result="Passed" time="0.005" asserts="0" />
+    <test-case id="1003" name="IgnoredTest" fullname="Test.TestPrimer.IgnoredTest" result="Skipped" label="Ignored" time="0.001" asserts="0">
+      <properties>
+        <property name="_SKIPREASON" value="ignored test" />
+      </properties>
+      <reason>
+        <message><![CDATA[ignored test]]></message>
+      </reason>
+    </test-case>
+    <test-case id="1004" name="SourcesAreEqual" fullname="Test.TestPrimer.SourcesAreEqual" result="Passed" time="0.002" asserts="3" />
+    <test-case id="1005" name="SourcesAreSubsetOfEachOther" fullname="Test.TestPrimer.SourcesAreSubsetOfEachOther" result="Passed" time="0.002" asserts="2" />
+  </test-suite>
+</test-suite>
