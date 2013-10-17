@@ -20,7 +20,7 @@ public class CsharpPluginTestDriver : MonoBehaviour
     {
         if (RunTests)
         {
-            NUnitLiteUnityRunner.RunTests();
+//            NUnitLiteUnityRunner.RunTests();
         }
     }
 

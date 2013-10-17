@@ -4,8 +4,8 @@ var runTests : boolean;
 
 function Start ()
 {
-    if (runTests)
-        NUnitLiteUnityRunner.RunTests();
+//    if (runTests)
+//        NUnitLiteUnityRunner.RunTests();
 }
 
 @TestFixture
