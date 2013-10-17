@@ -19,7 +19,7 @@ public class EditorScript
 	[MenuItem("Window/PerformTest")]
 	static void PerformTest () {
 		
-		EditorApplication.OpenScene("Assets/Scenes/TestCI.unity");	
+		EditorApplication.OpenScene("Assets/Scenes/TestCI_NUnit.unity");	
 		
 		GameObject oneFrameObject = new GameObject ("OneFrameObject");
 
