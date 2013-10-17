@@ -29,7 +29,7 @@ public class CsharpScriptsTestDriver : MonoBehaviour
 			using (var sw = new StringWriter())
 	        {
 	            var runner = new TextUI(sw);
-	            runner.Execute(new string[] {"/result:TestResult.xml"});
+	            runner.Execute(new string[] {"/result:Results/TestResult.xml"});
 	        }
 		}
     }
