@@ -158,7 +158,7 @@ namespace NUnitLite.Runner
             {
                 XmlTextWriter resultWriter = new XmlTextWriter(resultFile, System.Text.Encoding.UTF8);
                 resultWriter.Formatting = Formatting.Indented;
-				resultWriter.WriteStartDocument ();
+//				resultWriter.WriteStartDocument ();
                 result.ToXml(true).WriteTo(resultWriter);
                 resultWriter.Close();
             }
