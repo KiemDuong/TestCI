@@ -21,6 +21,8 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // ***********************************************************************
 
+// NHPhuong added:
+#if USE_TCP_WRITER
 using System;
 using System.IO;
 using System.Net.Sockets;
@@ -71,3 +73,4 @@ namespace NUnitLite.Runner
         }
     }
 }
+#endif
