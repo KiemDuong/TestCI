@@ -11,9 +11,6 @@ public class AutomaticBuildScript
 	 ///////////////////////////////////////////////////////////////////////////////////////////////////
 	 static void PerformBuild (BuildTarget target, BuildOptions option = BuildOptions.None)
 	{	
-		// Clean up
-		Directory.Delete ("Assets/Automatic/2_UnitTest", true);
-		
 		EditorUserBuildSettings.SwitchActiveBuildTarget (target);
 		
 		string target_dir = APP_NAME;

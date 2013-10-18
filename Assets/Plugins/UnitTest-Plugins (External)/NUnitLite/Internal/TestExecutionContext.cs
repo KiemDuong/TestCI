@@ -21,6 +21,9 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // ***********************************************************************
 
+// NHPhuong added:
+#define NUNITLITE
+
 using System;
 using System.Collections;
 using System.Collections.Specialized;
