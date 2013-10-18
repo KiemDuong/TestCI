@@ -6,7 +6,7 @@ public class UnitTestRunScript : MonoBehaviour {
 
 	static void PerformTest () {
 		
-		EditorApplication.OpenScene("Assets/Scenes/TestCI_NUnit.unity");	
+		EditorApplication.OpenScene("Assets/UnitTest-Scripts (External)/Scenes/TestCI_NUnit.unity");	
 		
 		GameObject oneFrameObject = new GameObject ("OneFrameObject");
 
