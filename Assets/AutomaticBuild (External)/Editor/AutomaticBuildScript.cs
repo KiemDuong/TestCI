@@ -6,14 +6,26 @@ using System.IO;
 
 public class AutomaticBuildScript
 {
-	 static string APP_NAME = "TestCI";
+ 	static string APP_NAME = "TestCI";
+	
+	const string BUILD_DIR = "build";
+	
+	const string BIN_DIR = "bin";
 	
 	 ///////////////////////////////////////////////////////////////////////////////////////////////////
 	 static void PerformBuild (BuildTarget target, BuildOptions option = BuildOptions.None)
 	{	
 		EditorUserBuildSettings.SwitchActiveBuildTarget (target);
 		
-		string target_dir = APP_NAME;
+		if (!Directory.Exists (BUILD_DIR)) {
+			Directory.CreateDirectory (BUILD_DIR);	
+		}
+		
+		if (!Directory.Exists (BUILD_DIR + "/" + BIN_DIR)) {
+			Directory.CreateDirectory (BUILD_DIR + "/" + BIN_DIR);	
+		}
+		
+		string target_dir = BUILD_DIR + "/" + BIN_DIR + "/" + APP_NAME;
 		string[] scenes = { "Assets/Scenes/TestBuild.unity" };
 		
 		// Test build 
@@ -21,21 +33,25 @@ public class AutomaticBuildScript
      }
 	///////////////////////////////////////////////////////////////////////////////////////////////////
 	
+	[MenuItem ("AutomaticBuild/BuildAndroid")]
 	static void PerformBuildAndroid ()
 	{		
 		AutomaticBuildScript.PerformBuild (BuildTarget.Android);
 	}
 	
+	[MenuItem ("AutomaticBuild/BuildWindows")]
 	static void PerformBuildWindows ()
 	{
 		AutomaticBuildScript.PerformBuild (BuildTarget.StandaloneWindows);
 	}
 	
+	[MenuItem ("AutomaticBuild/BuildMAC")]
 	static void PerformBuildMAC ()
 	{
 		AutomaticBuildScript.PerformBuild (BuildTarget.StandaloneOSXIntel);
 	}
 	
+	[MenuItem ("AutomaticBuild/BuildIOS")]
 	static void PerformBuildIOS ()
 	{
 		AutomaticBuildScript.PerformBuild (BuildTarget.iPhone);
