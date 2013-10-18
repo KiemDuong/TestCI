@@ -13,7 +13,7 @@ public class EditorScript
 		EditorUserBuildSettings.SwitchActiveBuildTarget (target);
 		
 		string target_dir = APP_NAME;
-		string[] scenes = { "Assets/Scenes/TestCI.unity" };
+		string[] scenes = { "Assets/Scenes/TestBuild.unity" };
 		
 		// Test build 
 		BuildPipeline.BuildPlayer(scenes, target_dir, target, option);
