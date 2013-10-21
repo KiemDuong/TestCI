@@ -15,6 +15,12 @@ public class AutomaticBuildScript
 	 ///////////////////////////////////////////////////////////////////////////////////////////////////
 	 static void PerformBuild (BuildTarget target, BuildOptions option = BuildOptions.None)
 	{	
+		Directory.Delete ("Assets/Plugins", true);
+		
+		EditorUserBuildSettings.activeBuildTargetChanged = () => {
+			Debug.Log ("Active target: " + EditorUserBuildSettings.activeBuildTarget.ToString ());	
+		};
+		
 		EditorUserBuildSettings.SwitchActiveBuildTarget (target);
 		
 		if (!Directory.Exists (BUILD_DIR)) {
