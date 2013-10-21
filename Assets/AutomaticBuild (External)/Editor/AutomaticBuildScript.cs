@@ -19,6 +19,8 @@ public class AutomaticBuildScript
 		
 		Directory.Delete ("Assets/UnitTest-Scripts (External)", true);
 		
+		AssetDatabase.Refresh (ImportAssetOptions.ForceSynchronousImport);
+		
 		EditorUserBuildSettings.activeBuildTargetChanged = () => {
 			Debug.Log ("Active target: " + EditorUserBuildSettings.activeBuildTarget.ToString ());	
 		};
