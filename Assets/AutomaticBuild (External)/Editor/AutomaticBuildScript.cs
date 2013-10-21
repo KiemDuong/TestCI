@@ -46,6 +46,8 @@ public class AutomaticBuildScript
 	[MenuItem ("AutomaticBuild/BuildAndroid")]
 	static void PerformBuildAndroid ()
 	{		
+		EditorPrefs.SetString("AndroidSdkRoot", "C:/adt-bundle-windows-x86-20130522/sdk");
+		
 		AutomaticBuildScript.PerformBuild (BuildTarget.Android);
 	}
 	
