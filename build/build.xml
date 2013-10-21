@@ -1,52 +1,52 @@
-<?xml version='1.0' encoding='UTF-8'?>
-< Project name = "Build_Android" Default = "main" basedir = "." > 
-  < property environment = "env" /> 
-  < property name = "RAW_BUILD_NUMBER " value = "$ {env.BUILD_NUMBER}" /> 
-  < script Language = "JavaScript" > <! [CDATA [
-    var buildNum = parseInt (project.getProperty ("RAW_BUILD_NUMBER"))
-    var minorBuildNumber = buildNum% 100;
-    var majorBuildNumber = (Math.floor (buildNum / 100))% 100;
-    var uberBuildNumber = (Math.floor (buildNum / 10000))% 100;
-    project.setProperty ("minorBuildNumber", minorBuildNumber);
-    project.setProperty ("majorBuildNumber", majorBuildNumber);
-    project.setProperty ("uberBuildNumber", uberBuildNumber);
-  ]]> </ script > 
-  < property name = "VERSION_STRING" value = "$ {uberBuildNumber}. $ {majorBuildNumber}. $ {minorBuildNumber}" /> 
-  < property file = "settings.properties" /> 
-  < property name = " dev.dir.absolute " Location = "$ {dev.dir}" /> 
-  < tstamp > 
-    < format property = "TODAY_STAMP" pattern = "YYYY_MM_DD" locale = "en, U.S." /> 
-  </ tstamp > 
-  < tstamp > 
-    < format property = "MONTH_STAMP" pattern = "M" locale = "en, U.S." /> 
-  </ tstamp > 
-  < property name = "VERSION_NUM" value = "$ {uberBuildNumber}. $ {majorBuildNumber}. $ {minorBuildNumber}" / > 
-  < property name = "VERSION_STRING" value = "$ {VERSION_NUM honorbound_}" />
-  
-  < target name = "main" depends = "Android"  />
-  
-  < target name = "Android" depends = "compile-Android"  />
-  
-  < target name = "clean" > 
-    < echo Message = "Cleaning Build Space" /> 
-    < delete dir = "$ {build.dir}" /> 
-    < mkdir dir = "$ {build.dir}" /> 
-  </ target >
-  
-  < target name = "compile-Android" depends = "clean" >
-    
-    < echo Message = "Compiling Unity Project for Android Version $ {VERSION_STRING}" />
-    
-    
-    < echo Message = "$ {unity.bin}-projectpath $ {dev.dir.absolute}-executeMethod PerformBuild.CommandLineBuildAndroid-batchmode-quit" /> 
-    < Exec Executable = "$ {unity.bin}" failonerror = "true" > 
-      < Arg line = "$ {dev.dir.absolute-projectpath}" /> 
-      < Arg line = "-executeMethod PerformBuild.CommandLineBuildAndroid" /> 
-      < Arg line = "-batchmode" /> 
-      < Arg line = "-quit" /> 
-    </ Exec >
-    
-    < Copy file = "$ {build.dir} / Android" toFile = "$ {android.build.deploy.folder} / $ {VERSION_STRING}. apk" /> 
-  </ target >
-  
-</ Project >
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Build_Android" default="main" basedir=".">
+    <property environment="env"/>
+    <property name="RAW_BUILD_NUMBER" value="${env.BUILD_NUMBER}"/>
+	  <script language="javascript"><![CDATA[
+        var buildNum = parseInt(project.getProperty("RAW_BUILD_NUMBER"))
+		var minorBuildNumber = buildNum % 100;
+		var majorBuildNumber = (Math.floor(buildNum / 100)) % 100;
+		var uberBuildNumber = (Math.floor(buildNum / 10000)) % 100;
+        project.setProperty("minorBuildNumber", minorBuildNumber);
+		project.setProperty("majorBuildNumber", majorBuildNumber);
+		project.setProperty("uberBuildNumber", uberBuildNumber);
+    ]]></script>
+	<property name="VERSION_STRING" value="${uberBuildNumber}.${majorBuildNumber}.${minorBuildNumber}"/>
+    <property file="settings.properties"/>
+    <property name="dev.dir.absolute" location="${dev.dir}"/>
+    <tstamp>
+        <format property="TODAY_STAMP" pattern="yyyy_MM_dd" locale="en,US"/>
+    </tstamp>
+	<tstamp>
+        <format property="MONTH_STAMP" pattern="M" locale="en,US"/>
+    </tstamp>
+	<property name="VERSION_NUM" value="${uberBuildNumber}.${majorBuildNumber}.${minorBuildNumber}"/>
+	<property name="VERSION_STRING" value="honorbound_${VERSION_NUM}"/>
+ 
+    <target name="main" depends="android" />
+ 
+    <target name="android" depends="compile-android" />
+ 
+    <target name="clean">
+        <echo message="Cleaning Build Space"/>
+        <delete dir="${build.dir}"/>
+        <mkdir dir="${build.dir}"/>
+    </target>
+ 
+    <target name="compile-android" depends="clean">
+ 
+        <echo message="Compiling unity project for android version ${VERSION_STRING}"/>
+ 
+ 
+        <echo message="${unity.bin} -projectPath ${dev.dir.absolute} -executeMethod PerformBuild.CommandLineBuildAndroid -batchmode -quit"/>
+        <exec executable="${unity.bin}" failonerror="true">
+            <arg line="-projectPath ${dev.dir.absolute}"/>
+            <arg line="-executeMethod PerformBuild.CommandLineBuildAndroid"/>
+            <arg line="-batchmode"/>
+            <arg line="-quit"/>
+        </exec>
+ 
+        <copy file="${dev.dir.absolute}/build/android" tofile="${android.build.deploy.folder}/${VERSION_STRING}.apk"/>
+    </target>
+ 
+</project>
