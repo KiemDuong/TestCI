@@ -44,7 +44,7 @@
             <arg line="-executeMethod AutomaticBuildScript.PerformBuildAndroid"/>
             <arg line="-batchmode"/>
 			<arg line="-nographics"/>
-			<arg line="-logFile" "log.txt"/>
+			<arg line="-logFile log.txt"/>
             <arg line="-quit"/>
         </exec>
  
