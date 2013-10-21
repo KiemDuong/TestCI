@@ -38,7 +38,7 @@
         <echo message="Compiling unity project for android version ${VERSION_STRING}"/>
  
  
-        <echo message="${unity.bin} -projectPath ${dev.dir.absolute} -executeMethod PerformBuild.CommandLineBuildAndroid -batchmode -quit"/>
+        <echo message="${unity.bin} -projectPath ${dev.dir.absolute} -executeMethod AutomaticBuildScript.PerformBuildAndroid -batchmode -quit"/>
         <exec executable="${unity.bin}" failonerror="true">
             <arg line="-projectPath ${dev.dir.absolute}"/>
             <arg line="-executeMethod PerformBuild.CommandLineBuildAndroid"/>
