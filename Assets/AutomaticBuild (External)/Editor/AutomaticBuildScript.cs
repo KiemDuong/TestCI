@@ -10,44 +10,26 @@ public class AutomaticBuildScript
 	
 	const string BUILD_DIR = "build";
 	
-	const string BIN_DIR = "bin";
-	
 	 ///////////////////////////////////////////////////////////////////////////////////////////////////
-	 static void PerformBuild (BuildTarget target, BuildOptions option = BuildOptions.None)
+	static void PerformBuild (BuildTarget target, BuildOptions option = BuildOptions.None)
 	{	
-		Directory.Delete ("Assets/Plugins", true);
-		
-		Directory.Delete ("Assets/UnitTest-Scripts (External)", true);
-		
-		AssetDatabase.Refresh (ImportAssetOptions.ForceSynchronousImport);
-		
-		EditorUserBuildSettings.activeBuildTargetChanged = () => {
-			Debug.Log ("Active target: " + EditorUserBuildSettings.activeBuildTarget.ToString ());	
-		};
-		
 		EditorUserBuildSettings.SwitchActiveBuildTarget (target);
 		
 		if (!Directory.Exists (BUILD_DIR)) {
 			Directory.CreateDirectory (BUILD_DIR);	
 		}
 		
-		if (!Directory.Exists (BUILD_DIR + "/" + BIN_DIR)) {
-			Directory.CreateDirectory (BUILD_DIR + "/" + BIN_DIR);	
-		}
-		
-		string target_dir = BUILD_DIR + "/" + BIN_DIR + "/" + APP_NAME;
+		string target_dir = BUILD_DIR + "/" + APP_NAME;
 		string[] scenes = { "Assets/Scenes/TestBuild.unity" };
 		
 		// Test build 
 		BuildPipeline.BuildPlayer(scenes, target_dir, target, option);
-     }
+ 	}
 	///////////////////////////////////////////////////////////////////////////////////////////////////
 	
 	[MenuItem ("AutomaticBuild/BuildAndroid")]
 	static void PerformBuildAndroid ()
-	{		
-		EditorPrefs.SetString("AndroidSdkRoot", "C:/adt-bundle-windows-x86-20130522/sdk");
-		
+	{	
 		AutomaticBuildScript.PerformBuild (BuildTarget.Android);
 	}
 	
