@@ -40,7 +40,7 @@
  
         <echo message="${unity.bin} -projectPath ${dev.dir.absolute} -executeMethod AutomaticBuildScript.PerformBuildAndroid -batchmode -quit"/>
         <exec executable="${unity.bin}" failonerror="true">
-            <arg line="-projectPath ${dev.dir.absolute}"/>
+            <arg line='-projectPath "${dev.dir.absolute}"'/>
             <arg line="-executeMethod AutomaticBuildScript.PerformBuildAndroid"/>
             <arg line="-batchmode"/>
             <arg line="-quit"/>
