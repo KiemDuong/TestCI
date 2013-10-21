@@ -17,6 +17,8 @@ public class AutomaticBuildScript
 	{	
 		Directory.Delete ("Assets/Plugins", true);
 		
+		Directory.Delete ("Assets/UnitTest-Scripts (External)", true);
+		
 		EditorUserBuildSettings.activeBuildTargetChanged = () => {
 			Debug.Log ("Active target: " + EditorUserBuildSettings.activeBuildTarget.ToString ());	
 		};
