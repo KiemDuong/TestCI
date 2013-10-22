@@ -8,11 +8,11 @@ public class UnitTestRunScript : MonoBehaviour {
 		
 		EditorApplication.OpenScene("Assets/UnitTest-Scripts (External)/Scenes/TestCI_NUnit.unity");	
 		
-		GameObject oneFrameObject = new GameObject ("OneFrameObject");
-
-		oneFrameObject.AddComponent <OneFrameSignaller> ();
-		
 		EditorApplication.isPlaying = true;
+		
+		GameObject TestRunner = new GameObject ("TestRunner");
+
+		TestRunner.AddComponent <CsharpScriptsTestDriver> ();
 	}
 	
 	[MenuItem("UnitTest/PerformTest (Windows)")]

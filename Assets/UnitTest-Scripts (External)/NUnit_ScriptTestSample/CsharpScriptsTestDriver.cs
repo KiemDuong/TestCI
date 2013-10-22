@@ -10,30 +10,37 @@ using System.Reflection;
 
 #endregion
 
-public class CsharpScriptsTestDriver : MonoBehaviour
+public class CsharpScriptsTestDriver : MonoBehaviour, TestEndListener
 {
-    #region Editor Fields
-
-    public bool RunTests;
-
-    #endregion
-
-
+	bool isTestFinished = false;
 
     #region Unity Callbacks
 
     private void Start()
     {
-        if (RunTests) {
-//            NUnitLiteUnityRunner.RunTests();
-			using (var sw = new StringWriter())
-	        {
-	            var runner = new TextUI(sw);
-	            runner.Execute(new string[] {"/format:nunit2", "/result:Results/TestResult.xml"});
-	        }
-		}
+		TestEndSignaller testEnd = gameObject.AddComponent <TestEndSignaller> ();
+		testEnd.endTestListener = this;
+		
+        using (var sw = new StringWriter())
+        {
+			if (!Directory.Exists ("UnitTest")) {
+				Directory.CreateDirectory ("UnitTest");	
+			}
+			
+            var runner = new TextUI(sw);
+            runner.Execute(new string[] {"/format:nunit2", "/result:UnitTest/TestResult.xml"});
+			isTestFinished = true;
+        }
     }
-
+	
+	public bool IsTestEnd () {
+		return isTestFinished;
+	}
+	
+	public bool IsWaitForOneFrame () {
+		return true;	
+	}
+	
     #endregion
 
 }
