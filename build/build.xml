@@ -13,9 +13,9 @@
     ]]></script>
 	<property name="VERSION_STRING" value="${uberBuildNumber}.${majorBuildNumber}.${minorBuildNumber}"/>
     <property file="settings.properties"/>
-	<property name="curl.dir.absolute" location="{curl.bin}"/>
-	<property name="output.dir.absolute" location="{output.dir}"/>
-	<property name="icon.dir.absolute" location="{ICON_FILE}"/>
+	<property name="curl.dir.absolute" location="${curl.bin}"/>
+	<property name="output.dir.absolute" location="${output.dir}"/>
+	<property name="icon.dir.absolute" location="${ICON_FILE}"/>
     <tstamp>
         <format property="TODAY_STAMP" pattern="yyyy_MM_dd" locale="en,US"/>
     </tstamp>
