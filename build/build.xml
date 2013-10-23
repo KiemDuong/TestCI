@@ -14,6 +14,7 @@
 	<property name="VERSION_STRING" value="${uberBuildNumber}.${majorBuildNumber}.${minorBuildNumber}"/>
     <property file="settings.properties"/>
 	<property name="output.dir.absolute" location="{output.dir}"/>
+	<property name="icon.dir.absolute" location="{ICON_FILE}"/>
     <tstamp>
         <format property="TODAY_STAMP" pattern="yyyy_MM_dd" locale="en,US"/>
     </tstamp>
@@ -28,7 +29,17 @@
     <target name="upload-android">
         <copy file="${output.dir.absolute}/${APP_NAME}" tofile="${output.dir.absolute}/${VERSION_STRING}.apk"/>
 		<exec executable="curl" dir="${output.dir.absolute}">
-            <arg line='--form files="apk=@${VERSION_STRING}.apk" --form data="project_name=${APP_NAME}&platform_name=Android&environment_name=Development&version_number=${VERSION_NUM}&version_name=test_app&change_log=test" ${UPLOAD_URL}' />
+            <arg line="-F apk=@${VERSION_STRING}.apk" />
+			<arg line="-F icon=@${icon.dir.absolute}" />
+			<arg line="-F project_name=${APP_NAME}" />
+			<arg line="-F platform_name=${platform_name}" />
+			<arg line="-F environment_name=${environment_name}" />
+			<arg line="-F version_number=${VERSION_NUM}" />
+			<arg line="-F version_name=${version_name}" />
+			<arg line="-F change_log=${change_log}" />
+			<arg line="-F pushlish_from=${publish_from}" />
+			<arg line="-F pushlish_to=${publish_to}" />
+			<arg line="${UPLOAD_URL}" />
         </exec>
     </target>
  
