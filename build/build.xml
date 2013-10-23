@@ -13,6 +13,7 @@
     ]]></script>
 	<property name="VERSION_STRING" value="${uberBuildNumber}.${majorBuildNumber}.${minorBuildNumber}"/>
     <property file="settings.properties"/>
+	<property name="curl.dir.absolute" location="{curl.bin}"/>
 	<property name="output.dir.absolute" location="{output.dir}"/>
 	<property name="icon.dir.absolute" location="{ICON_FILE}"/>
     <tstamp>
@@ -28,7 +29,7 @@
  
     <target name="upload-android">
         <copy file="${output.dir.absolute}/${APP_NAME}" tofile="${output.dir.absolute}/${VERSION_STRING}.apk"/>
-		<exec executable="curl" dir="${output.dir.absolute}">
+		<exec executable="${curl.dir.absolute}/curl" dir="${output.dir.absolute}">
             <arg line="-F apk=@${VERSION_STRING}.apk" />
 			<arg line="-F icon=@${icon.dir.absolute}" />
 			<arg line="-F project_name=${APP_NAME}" />
