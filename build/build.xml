@@ -28,7 +28,7 @@
     <target name="upload-android">
         <copy file="${output.dir.absolute}/${APP_NAME}" tofile="${output.dir.absolute}/${VERSION_STRING}.apk"/>
 		<exec executable="curl" dir="${output.dir.absolute}">
-            <arg line="--form files='apk=@${VERSION_STRING}.apk' --form data='project_name=${APP_NAME}&platform_name=Android&environment_name=Development&version_number=${VERSION_NUM}&version_name=test_app&change_log=test ${UPLOAD_URL}" />
+            <arg line='--form files="apk=@${VERSION_STRING}.apk" --form data="project_name=${APP_NAME}&platform_name=Android&environment_name=Development&version_number=${VERSION_NUM}&version_name=test_app&change_log=test" ${UPLOAD_URL}' />
         </exec>
     </target>
  
