@@ -39,8 +39,8 @@
 			<arg line="-F version_number='${VERSION_NUM}'" />
 			<arg line="-F version_name='${version_name}'" />
 			<arg line="-F change_log='${change_log}'" />
-			<arg line="-F pushlish_from='${publish_from}'" />
-			<arg line="-F pushlish_to='${publish_to}'" />
+			<arg line="-F publish_from='${publish_from}'" />
+			<arg line="-F publish_to='${publish_to}'" />
 			<arg line="${UPLOAD_URL}" />
         </exec>
     </target>
