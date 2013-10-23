@@ -29,8 +29,8 @@
  
     <target name="upload-android">
         <copy file="${output.dir.absolute}/${APP_NAME}" tofile="${output.dir.absolute}/${VERSION_STRING}.apk"/>
-		<exec executable="${curl.dir.absolute}/curl">
-			<redirector output="upload.html" alwayslog="true"/>
+		<exec executable="${curl.dir.absolute}/curl" resultproperty='ota.url'>
+			<redirector output="upload.html" />
             <arg line="-F apk=@'${output.dir.absolute}/${VERSION_STRING}.apk'" />
 			<arg line='-F icon=@"${icon.dir.absolute}"' />
 			<arg line="-F project_name='${PROJECT_NAME}'" />
@@ -43,6 +43,7 @@
 			<arg line="-F publish_to='${publish_to}'" />
 			<arg line="${UPLOAD_URL}" />
         </exec>
+		<echo message="OTA URL: ${ota.url}" />
     </target>
  
 </project>
