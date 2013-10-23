@@ -30,7 +30,7 @@
     <target name="upload-android">
         <copy file="${output.dir.absolute}/${APP_NAME}" tofile="${output.dir.absolute}/${VERSION_STRING}.apk"/>
 		<exec executable="${curl.dir.absolute}/curl">
-            <arg line="-F apk=@${VERSION_STRING}.apk" />
+            <arg line="-F apk=@'${output.dir.absolute}/${VERSION_STRING}.apk'" />
 			<arg line='-F icon=@"${icon.dir.absolute}"' />
 			<arg line="-F project_name='${PROJECT_NAME}'" />
 			<arg line="-F platform_name='${platform_name}'" />
