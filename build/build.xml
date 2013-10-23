@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="Build_Android" default="main" basedir=".">
+<project name="TestCI" default="main" basedir=".">
     <property environment="env"/>
     <property name="RAW_BUILD_NUMBER" value="${env.BUILD_NUMBER}"/>
 	  <script language="javascript"><![CDATA[
@@ -13,7 +13,7 @@
     ]]></script>
 	<property name="VERSION_STRING" value="${uberBuildNumber}.${majorBuildNumber}.${minorBuildNumber}"/>
     <property file="settings.properties"/>
-    <property name="dev.dir.absolute" location="${dev.dir}"/>
+	<property name="output.dir.absolute" location="{output.dir}"/>
     <tstamp>
         <format property="TODAY_STAMP" pattern="yyyy_MM_dd" locale="en,US"/>
     </tstamp>
@@ -21,34 +21,15 @@
         <format property="MONTH_STAMP" pattern="M" locale="en,US"/>
     </tstamp>
 	<property name="VERSION_NUM" value="${uberBuildNumber}.${majorBuildNumber}.${minorBuildNumber}"/>
-	<property name="VERSION_STRING" value="honorbound_${VERSION_NUM}"/>
+	<property name="VERSION_STRING" value="${APP_NAME}${VERSION_NUM}"/>
+	
+    <target name="main" depends="upload-android" />
  
-    <target name="main" depends="android" />
- 
-    <target name="android" depends="compile-android" />
- 
-    <target name="clean">
-        <echo message="Cleaning Build Space"/>
-        <delete dir="${build.dir}"/>
-        <mkdir dir="${build.dir}"/>
-    </target>
- 
-    <target name="compile-android" depends="clean">
- 
-        <echo message="Compiling unity project for android version ${VERSION_STRING}"/>
- 
- 
-        <echo message="${unity.bin} -projectPath ${dev.dir.absolute} -executeMethod AutomaticBuildScript.PerformBuildAndroid -batchmode -quit"/>
-        <exec executable="${unity.bin}" failonerror="true">
-            <arg line='-projectPath "${dev.dir.absolute}"'/>
-            <arg line="-executeMethod AutomaticBuildScript.PerformBuildAndroid"/>
-            <arg line="-batchmode"/>
-			<arg line="-nographics"/>
-			<arg line="-logFile log.txt"/>
-            <arg line="-quit"/>
+    <target name="upload-android">
+        <copy file="${output.dir.absolute}/${APP_NAME}" tofile="${output.dir.absolute}/${VERSION_STRING}.apk"/>
+		<exec executable="curl" dir="${output.dir.absolute}">
+            <arg line="--form files='apk=@${VERSION_STRING}.apk' --form data='project_name=${APP_NAME}&platform_name=Android&environment_name=Development&version_number=${VERSION_NUM}&version_name=test_app&change_log=test ${UPLOAD_URL}" />
         </exec>
- 
-        <copy file="${dev.dir.absolute}/build/android" tofile="${android.build.deploy.folder}/${VERSION_STRING}.apk"/>
     </target>
  
 </project>

@@ -10,6 +10,8 @@ public class AutomaticBuildScript
 	
 	const string BUILD_DIR = "build";
 	
+	const string OUTPUT_DIR = "output";
+	
 	 ///////////////////////////////////////////////////////////////////////////////////////////////////
 	static void PerformBuild (BuildTarget target, BuildOptions option = BuildOptions.None)
 	{	
@@ -19,7 +21,11 @@ public class AutomaticBuildScript
 			Directory.CreateDirectory (BUILD_DIR);	
 		}
 		
-		string target_dir = BUILD_DIR + "/" + APP_NAME;
+		if (!Directory.Exists (BUILD_DIR + "/" + OUTPUT_DIR)) {
+			Directory.CreateDirectory (BUILD_DIR + "/" + OUTPUT_DIR);	
+		}
+		
+		string target_dir = BUILD_DIR + "/" + OUTPUT_DIR + "/" + APP_NAME;
 		string[] scenes = { "Assets/Scenes/TestBuild.unity" };
 		
 		// Test build 
