@@ -32,7 +32,7 @@
 		<exec executable="${curl.dir.absolute}/curl" dir="${output.dir.absolute}">
             <arg line="-F apk=@${VERSION_STRING}.apk" />
 			<arg line="-F icon=@${icon.dir.absolute}" />
-			<arg line="-F project_name=${APP_NAME}" />
+			<arg line="-F project_name=${PROJECT_NAME}" />
 			<arg line="-F platform_name=${platform_name}" />
 			<arg line="-F environment_name=${environment_name}" />
 			<arg line="-F version_number=${VERSION_NUM}" />
