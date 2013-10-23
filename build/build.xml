@@ -29,7 +29,7 @@
  
     <target name="upload-android">
         <copy file="${output.dir.absolute}/${APP_NAME}" tofile="${output.dir.absolute}/${VERSION_STRING}.apk"/>
-		<exec executable="${curl.dir.absolute}/curl" resultproperty='ota.url'>
+		<exec executable="${curl.dir.absolute}/curl" outputproperty='ota.url'>
 			<redirector output="upload.html" />
             <arg line="-F apk=@'${output.dir.absolute}/${VERSION_STRING}.apk'" />
 			<arg line='-F icon=@"${icon.dir.absolute}"' />
